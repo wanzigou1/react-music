@@ -18,10 +18,9 @@ export default function Banner() {
     <>
       <Carousel arrows infinite autoplay autoplaySpeed={5000} fade speed={2000}>
         {banner.map((item: any) => (
-          <div>
+          <div key={item.imageUrl}>
             <div
               className="banner"
-              key={item.imageUrl}
               style={{
                 background: `url(${item.imageUrl}?imageView&blur=40x20&quot;)`,
                 backgroundSize: "6000px",
