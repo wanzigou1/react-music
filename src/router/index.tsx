@@ -1,10 +1,10 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import ErrorEmpty from "../views/ErrorEmpty";
 import App from "../App";
 import Discover from "../views/Discover";
 import My from "../views/My";
 import Song from "../views/Song";
-const route = createBrowserRouter([
+const route = createHashRouter([
   {
     path: "/",
     element: <App></App>,
