@@ -1,10 +1,10 @@
-import "./Logo.less";
+import { LogoStyles } from "./index.styles";
 export default function Logo() {
   return (
     <>
-      <div className="logo">
+      <LogoStyles>
         <a href="#"></a>
-      </div>
+      </LogoStyles>
     </>
   );
 }

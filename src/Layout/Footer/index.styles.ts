@@ -1,4 +1,5 @@
-.footer-container {
+import styled from "styled-components";
+export const Foot = styled.div`
   position: fixed;
   left: 0;
   // top: 0;
@@ -27,4 +28,4 @@
       color: #fff;
     }
   }
-}
+`;

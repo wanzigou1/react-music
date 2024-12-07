@@ -1,4 +1,6 @@
-html {
+import { createGlobalStyle } from "styled-components";
+export const GlobalStyle = createGlobalStyle`
+ html {
   overflow-x: auto;
   overflow-y: scroll;
 }
@@ -96,3 +98,5 @@ blockquote:before,
 blockquote:after {
   content: ””;
 }
+
+`;

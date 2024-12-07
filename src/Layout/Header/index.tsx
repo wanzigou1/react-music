@@ -1,6 +1,6 @@
-import "./index.less";
-import Logo from "./components/Logo";
-import Menu from "./components/Menu";
+import * as Styles from "./index.styles";
+import Logo from "@/components/Logo";
+import Menu from "@/components/Menu";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 export default function Header() {
@@ -47,13 +47,13 @@ export default function Header() {
   };
   return (
     <>
-      <div className="header">
+      <Styles.Header>
         <div className="header-container">
           <Logo></Logo>
           <Menu></Menu>
         </div>
-      </div>
-      <div className="sub-container">
+      </Styles.Header>
+      <Styles.Container>
         <div className="sub-nav">
           {subMenu.map((item, index) => (
             <div
@@ -65,7 +65,7 @@ export default function Header() {
             </div>
           ))}
         </div>
-      </div>
+      </Styles.Container>
     </>
   );
 }

@@ -1,6 +1,4 @@
-import Header from "./views/Header";
-import Content from "./views/Content";
-import Footer from "./views/Footer";
+import Layout from "./Layout";
 import { registerMicroApps, start } from "qiankun";
 import { useEffect } from "react";
 function App() {
@@ -20,9 +18,7 @@ function App() {
   }, []);
   return (
     <>
-      <Header></Header>
-      <Content></Content>
-      <Footer></Footer>
+      <Layout></Layout>
     </>
   );
 }

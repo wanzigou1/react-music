@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorEmpty from "../views/ErrorEmpty";
 import App from "../App";
-import Discover from "../views/Content/Discover";
-import My from "../views/Content/My";
+import Discover from "../views/Discover";
+import My from "../views/My";
 import Song from "../views/Song";
 const route = createBrowserRouter([
   {

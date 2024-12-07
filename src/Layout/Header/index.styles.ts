@@ -1,4 +1,5 @@
-.header {
+import styled from "styled-components";
+export const Header = styled.div`
   background: #242424;
   .header-container {
     display: flex;
@@ -6,8 +7,8 @@
     height: 70px;
     margin: 0 auto;
   }
-}
-.sub-container {
+`;
+export const Container = styled.div`
   min-height: 5px;
   background-color: #c20c0c;
   border-bottom: 1px solid #a40011;
@@ -31,4 +32,4 @@
   .actived {
     background: #9b0909;
   }
-}
+`;

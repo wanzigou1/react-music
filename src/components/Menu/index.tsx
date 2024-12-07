@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import "./Menu.less";
+// import "./index.less";
+import { MenuStyles } from "./index.styles";
 export default function Menu() {
   // 初始化菜单
   const initMenu = [
@@ -81,7 +82,7 @@ export default function Menu() {
   };
   return (
     <>
-      <ul className="menus">
+      <MenuStyles>
         {menus.map((item, index) => (
           <li key={item.name} onClick={() => handleMenu(index)}>
             <NavLink
@@ -94,7 +95,7 @@ export default function Menu() {
             {item.actived && <div className="triangle-up"></div>}
           </li>
         ))}
-      </ul>
+      </MenuStyles>
     </>
   );
 }

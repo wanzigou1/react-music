@@ -1,4 +1,5 @@
-.content {
+import styled from "styled-components";
+export const ContentStyles = styled.div`
   width: 100%;
   min-height: calc(100vh - 105px);
   background: #f5f5f5;
@@ -8,4 +9,4 @@
     margin: 0 auto;
     background: #ffffff;
   }
-}
+`;

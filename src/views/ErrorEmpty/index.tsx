@@ -1,9 +1,9 @@
 import Lottie from "lottie-web";
-import Animation from "../../assets/Animation - 1731151172118.json";
+import Animation from "@/assets/error-animation.json";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import "./index.less";
+import { ErrorStyles } from "./index.styles";
 const ErrorEmpty = () => {
   const lottieRef = useRef(null);
   const [time, setTime] = useState(3);
@@ -34,7 +34,7 @@ const ErrorEmpty = () => {
     navigate("/");
   };
   return (
-    <div className="error-container">
+    <ErrorStyles>
       <div className="error-svg" ref={lottieRef}></div>
       <h2 className="error-title">你访问的页面不见了~</h2>
       <div className="go-back-title">
@@ -49,7 +49,7 @@ const ErrorEmpty = () => {
       >
         返回首页
       </Button>
-    </div>
+    </ErrorStyles>
   );
 };
 export default ErrorEmpty;

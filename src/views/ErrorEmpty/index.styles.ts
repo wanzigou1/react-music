@@ -1,4 +1,5 @@
-.error-container {
+import styled from "styled-components";
+export const ErrorStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +21,4 @@
     color: #333;
     font-size: 16px;
   }
-}
+`;

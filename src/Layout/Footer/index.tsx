@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./index.less";
+import { Foot } from "./index.styles";
 import { PushpinOutlined } from "@ant-design/icons";
 export default function Footer() {
   const ref = useRef(null);
@@ -16,7 +16,7 @@ export default function Footer() {
   };
   return (
     <>
-      <div className="footer-container">
+      <Foot>
         <div
           className="play-container"
           ref={ref}
@@ -28,7 +28,7 @@ export default function Footer() {
             <PushpinOutlined className="icon" />
           </div>
         </div>
-      </div>
+      </Foot>
     </>
   );
 }

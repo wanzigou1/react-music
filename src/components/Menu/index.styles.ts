@@ -1,4 +1,5 @@
-.menus {
+import styled from "styled-components";
+export const MenuStyles = styled.ul`
   display: flex;
   li {
     position: relative;
@@ -31,4 +32,4 @@
     border-right: 6px solid transparent;
     border-bottom: 7px solid #c20c0c;
   }
-}
+`;
