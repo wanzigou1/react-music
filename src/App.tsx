@@ -8,7 +8,7 @@ function App() {
         name: "nodeApp", // app name registered
         entry: "//localhost:3000",
         container: "#micro-container",
-        activeRule: "/my",
+        activeRule: "#/my",
         props: {
           shadowDOM: true, // 开启样式隔离
         },
