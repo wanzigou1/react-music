@@ -3,6 +3,8 @@ import Logo from "@/components/Logo";
 import Menu from "@/components/Menu";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Input, Button } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 export default function Header() {
   const initMenu = [
     { name: "推荐", path: "/discover", target: "", actived: true },
@@ -51,6 +53,18 @@ export default function Header() {
         <div className="header-container">
           <Logo></Logo>
           <Menu></Menu>
+          <div className="input-container">
+            <Input
+              placeholder="音乐/视频/电台/用户"
+              prefix={<SearchOutlined />}
+            ></Input>
+          </div>
+          <Button className="btn-l" color="default" variant="solid">
+            创作者中心
+          </Button>
+          <Button className="btn-r" color="default" variant="link">
+            登录
+          </Button>
         </div>
       </Styles.Header>
       <Styles.Container>

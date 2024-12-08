@@ -24,6 +24,7 @@ export default function Banner() {
           autoplaySpeed={5000}
           fade
           speed={2000}
+          dots={{ className: "dots-style" }}
         >
           {banner.map((item: any) => (
             <div key={item.imageUrl}>

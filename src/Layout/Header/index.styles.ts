@@ -3,9 +3,31 @@ export const Header = styled.div`
   background: #242424;
   .header-container {
     display: flex;
+    align-items: center;
     width: 1100px;
     height: 70px;
     margin: 0 auto;
+  }
+  .input-container {
+    width: 158px;
+    height: 32px;
+    .ant-input-outlined {
+      font-size: 12px;
+      line-height: 22px;
+      border-radius: 32px;
+    }
+  }
+  .btn-l {
+    color: #ccc;
+    font-size: 12px;
+    background: #242424;
+    border: 1px solid #4f4f4f;
+    border-radius: 32px;
+    margin-left: 12px;
+  }
+  .btn-r {
+    color: #787878;
+    font-size: 12px;
   }
 `;
 export const Container = styled.div`
