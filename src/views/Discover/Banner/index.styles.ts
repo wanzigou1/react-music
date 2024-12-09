@@ -24,8 +24,11 @@ export const BannerStyles = styled.div`
         }
       }
     }
-    li.slick-active button {
-      background: #a40011;
+    li.slick-active {
+      width: 6px;
+      button {
+        background: #a40011;
+      }
     }
   }
   .banner {
