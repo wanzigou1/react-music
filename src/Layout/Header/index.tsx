@@ -1,11 +1,12 @@
 import * as Styles from "./index.styles";
 import Logo from "@/components/Logo";
 import Menu from "@/components/Menu";
+import SuggestInput from "./components/SuggestInput";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Input, Button } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 export default function Header() {
+  // 初始化菜单
   const initMenu = [
     { name: "推荐", path: "/discover", target: "", actived: true },
     {
@@ -35,6 +36,7 @@ export default function Header() {
     },
   ];
   const { pathname } = useLocation();
+  const [subMenu, setSubMenu] = useState(initMenu);
   useEffect(() => {
     if (pathname !== "" && pathname !== "/" && pathname !== "/discover") {
       setSubMenu([]);
@@ -42,7 +44,7 @@ export default function Header() {
       setSubMenu(initMenu);
     }
   }, [pathname]);
-  const [subMenu, setSubMenu] = useState(initMenu);
+  // 切换菜单
   const handleClick = (index: number) => {
     const temp = subMenu.map((item, i) => ({ ...item, actived: i === index }));
     setSubMenu(temp);
@@ -54,10 +56,7 @@ export default function Header() {
           <Logo></Logo>
           <Menu></Menu>
           <div className="input-container">
-            <Input
-              placeholder="音乐/视频/电台/用户"
-              prefix={<SearchOutlined />}
-            ></Input>
+            <SuggestInput></SuggestInput>
           </div>
           <Button className="btn-l" color="default" variant="solid">
             创作者中心
