@@ -63,12 +63,17 @@ interface Playlist {
   description: string;
   highQuality: boolean;
 }
-
+export enum mappingName {
+  "songs" = "单曲",
+  "artists" = "歌手",
+  "albums" = "专辑",
+  "playlists" = "歌单",
+}
 // 定义接口返回的类型
 export interface SuggestResult {
-  albums: Album[];
-  artists: Artist[];
-  songs: Song[];
-  playlists: Playlist[];
-  order: string[];
+  albums?: Album[];
+  artists?: Artist[];
+  songs?: Song[];
+  playlists?: Playlist[];
+  order?: string[];
 }
