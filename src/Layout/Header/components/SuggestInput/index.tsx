@@ -4,22 +4,27 @@ import { Input, Popover } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import _ from "lodash";
 import { ContentStyles } from "./index.styles";
-import { SuggestResult, mappingName } from "./type";
+import { handleRes } from "./type";
+import Child from "../ChildNode/index";
 // 定义接口类型，确保类型安全
 
 export default function SuggestInput() {
   const [searchValue, setSearchValue] = useState("");
-  const [result, setResult] = useState<SuggestResult>({});
-  const [isFocus, setIsFocus] = useState(true);
+  const [result, setResult] = useState<handleRes[]>([]);
+  const [isFocus, setIsFocus] = useState(false);
 
   // 防抖搜索
   const debouncedQuery = useCallback(
     _.debounce((keywords: string) => {
-      if (!keywords.trim()) return;
+      if (!keywords.trim()) {
+        setIsFocus(false);
+        return;
+      }
+      setIsFocus(true);
       getSuggest({ keywords }).then((res) => {
-        setResult(res);
+        setResult(handleResult(res));
       });
-    }, 1000),
+    }, 300),
     []
   );
 
@@ -28,12 +33,23 @@ export default function SuggestInput() {
     setSearchValue(e.target.value);
     debouncedQuery(e.target.value); // 传入最新的 searchValue
   };
-  const handleResult = (data) => {};
+  //  处理搜索结果
+  const handleResult = (data) => {
+    return data.order.map((item) => {
+      return {
+        titleName: item,
+        content: data[item].map(
+          (item) =>
+            item.name + ((item.artists && "-" + item.artists[0]?.name) || "")
+        ),
+      };
+    });
+  };
   return (
     <ContentStyles>
       <Input
-        // onFocus={() => setIsFocus(true)}
-        // onBlur={() => setIsFocus(false)}
+        onFocus={() => searchValue && setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
         value={searchValue}
         onChange={handleQuery}
         placeholder="音乐/视频/电台/用户"
@@ -41,17 +57,8 @@ export default function SuggestInput() {
       />
       <div className={`card ${isFocus ? "" : "hide"}`}>
         <ul className="box">
-          {result.order?.map((item, index) => (
-            <li className="item" key={index}>
-              <div className="left">{mappingName[item]}</div>
-              <div className="right">
-                <div>
-                  {result[item].map((song) => (
-                    <div>{song.name + JSON.stringify(song.artists)}</div>
-                  ))}
-                </div>
-              </div>
-            </li>
+          {result.map((item, index) => (
+            <Child item={item} key={index}></Child>
           ))}
         </ul>
       </div>

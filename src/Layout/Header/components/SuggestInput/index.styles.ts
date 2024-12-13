@@ -12,12 +12,9 @@ export const ContentStyles = styled.div`
     top: 40px;
     .box {
       width: 100%;
-      .item {
-        display: flex;
+      & :nth-child(2n) {
         .right {
-          flex: 1;
-          border-top: 1px solid #ccc;
-          border-left: 1px solid #ccc;
+          background: #f5f5f5;
         }
       }
     }

@@ -1,5 +1,5 @@
 import request from "@/utils/request";
-
+import { SuggestResult } from "@/Layout/Header/components/SuggestInput/type";
 // 获取轮播图
 export const getBanner = async () => {
   return await request.get("/banner");

@@ -77,3 +77,7 @@ export interface SuggestResult {
   playlists?: Playlist[];
   order?: string[];
 }
+export interface handleRes {
+  titleName: string;
+  content: string[];
+}
