@@ -4,7 +4,6 @@ export const ContentStyles = styled.div`
   .card {
     width: 240px;
     height: 300px;
-    /* padding: 12px; */
     background: #fff;
     border-radius: 8px;
     position: absolute;
