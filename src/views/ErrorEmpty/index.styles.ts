@@ -1,16 +1,20 @@
 import styled from "styled-components";
 export const ErrorStyles = styled.div`
+  background-color: #fff;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   .error-svg {
-    margin-top: 18px;
-    width: 500px;
-    height: 500px;
+    margin-top: 80px;
+    width: 720px;
+    height: 720px;
   }
   .error-title {
     color: #000;
     font-size: 20px;
+    margin-top: 12px;
   }
   .go-back {
     background: #e60026;
@@ -20,5 +24,6 @@ export const ErrorStyles = styled.div`
   .go-back-title {
     color: #333;
     font-size: 16px;
+    line-height: 30px;
   }
 `;

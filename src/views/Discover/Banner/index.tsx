@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Carousel } from "antd";
 import { useNavigate } from "react-router-dom";
 import { getBanner } from "@/api";
@@ -37,11 +37,11 @@ export default function Banner() {
                 }}
               >
                 <img src={item.imageUrl} alt="" />
-                <div className="download" onClick={handleDown}></div>
               </div>
             </div>
           ))}
         </Carousel>
+        <div className="download" onClick={handleDown}></div>
       </BannerStyles>
     </>
   );
