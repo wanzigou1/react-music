@@ -1,15 +1,15 @@
 import { useRef, useState } from "react";
 import { Foot, IconBg } from "./index.styles";
-import { PushpinOutlined } from "@ant-design/icons";
+import { LockOutlined, UnlockOutlined } from "@ant-design/icons";
 export default function Footer() {
   const ref = useRef(null);
   const [isLock, setIsLock] = useState(false);
-  const [top, setTop] = useState(-7);
+  const [top, setTop] = useState(0);
   const handleMouseEnter = () => {
     setTop(-60);
   };
   const handleMouseLeave = () => {
-    !isLock && setTop(-7);
+    !isLock && setTop(0);
   };
   const handleLock = () => {
     setIsLock(!isLock);
@@ -81,7 +81,11 @@ export default function Footer() {
             onMouseLeave={handleMouseLeave}
           >
             <div className="icon-box" onClick={handleLock}>
-              <PushpinOutlined className="icon" />
+              {isLock ? (
+                <LockOutlined className="icon" />
+              ) : (
+                <UnlockOutlined className="icon" />
+              )}
             </div>
           </div>
         </div>

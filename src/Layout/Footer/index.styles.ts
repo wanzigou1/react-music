@@ -37,15 +37,17 @@ export const Foot = styled.div`
       box-shadow: 20px 20px 20px 20px #6c6c6c;
     }
     .icon-box {
-      width: 20px;
-      height: 20px;
+      width: 36px;
+      height: 26px;
       position: absolute;
-      // top: -20px;
-      right: 5px;
+      top: -20px;
+      right: 20px;
       background: rgb(51, 51, 51);
-
+      display: flex;
+      justify-content: center;
+      border-radius: 8px;
       .icon {
-        font-size: 20px;
+        font-size: 14px;
         color: #fff;
       }
     }
