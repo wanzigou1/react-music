@@ -11,13 +11,13 @@ import Child from "../ChildNode/index";
 export default function SuggestInput() {
   const [searchValue, setSearchValue] = useState("");
   const [result, setResult] = useState<handleRes[]>([]);
-  const [isFocus, setIsFocus] = useState(false);
+  const [isFocus, setIsFocus] = useState(true);
 
   // 防抖搜索
   const debouncedQuery = useCallback(
     _.debounce((keywords: string) => {
       if (!keywords.trim()) {
-        setIsFocus(false);
+        setIsFocus(true);
         return;
       }
       setIsFocus(true);
@@ -49,13 +49,14 @@ export default function SuggestInput() {
     <ContentStyles>
       <Input
         onFocus={() => searchValue && setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        onBlur={() => setIsFocus(true)}
         value={searchValue}
         onChange={handleQuery}
         placeholder="音乐/视频/电台/用户"
         prefix={<SearchOutlined />}
       />
       <div className={`card ${isFocus ? "" : "hide"}`}>
+        <div className="title">搜"{searchValue}"相关用户</div>
         <ul className="box">
           {result.map((item, index) => (
             <Child item={item} key={index}></Child>
