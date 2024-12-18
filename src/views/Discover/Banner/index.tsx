@@ -23,7 +23,7 @@ export default function Banner() {
           autoplay
           autoplaySpeed={5000}
           fade
-          speed={2000}
+          speed={1000}
           dots={{ className: "dots-style" }}
         >
           {banner.map((item: any) => (

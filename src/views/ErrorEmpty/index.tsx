@@ -1,5 +1,6 @@
 import Lottie from "lottie-web";
 import Animation from "@/assets/error-animation.json";
+import not_found from "@/assets/404.json";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,7 @@ const ErrorEmpty = () => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: Animation,
+      animationData: Math.random() > 0.5 ? not_found : Animation,
     });
     return () => {
       lottieRef.current = null;

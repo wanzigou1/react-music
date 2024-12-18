@@ -7,9 +7,7 @@ export const ErrorStyles = styled.div`
   align-items: center;
   justify-content: center;
   .error-svg {
-    margin-top: 80px;
-    width: 720px;
-    height: 720px;
+    height: 360px;
   }
   .error-title {
     color: #000;
