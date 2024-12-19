@@ -11,18 +11,18 @@ import Child from "../ChildNode/index";
 export default function SuggestInput() {
   const [searchValue, setSearchValue] = useState("");
   const [result, setResult] = useState<handleRes[]>([]);
-  const [isFocus, setIsFocus] = useState(true);
+  const [isFocus, setIsFocus] = useState(false);
 
   // 防抖搜索
   const debouncedQuery = useCallback(
     _.debounce((keywords: string) => {
       if (!keywords.trim()) {
-        setIsFocus(true);
+        setIsFocus(false);
         return;
       }
-      setIsFocus(true);
       getSuggest({ keywords }).then((res) => {
         setResult(handleResult(res));
+        setIsFocus(true);
       });
     }, 300),
     []
@@ -49,7 +49,7 @@ export default function SuggestInput() {
     <ContentStyles>
       <Input
         onFocus={() => searchValue && setIsFocus(true)}
-        onBlur={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
         value={searchValue}
         onChange={handleQuery}
         placeholder="音乐/视频/电台/用户"
