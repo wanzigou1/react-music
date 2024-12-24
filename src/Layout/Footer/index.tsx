@@ -62,7 +62,7 @@ export default function Footer() {
         <div className="foot-container">
           <ul className="icons">
             {iconList.map((item) => (
-              <li>
+              <li key={item.title}>
                 <IconBg
                   position={item.position}
                   activedposition={item.activedPosition}

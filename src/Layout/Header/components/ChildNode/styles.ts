@@ -20,6 +20,7 @@ export const Child = styled.li`
     overflow: hidden;
     border-top: 1px solid #ccc;
     border-left: 1px solid #ccc;
+    cursor: pointer;
     div {
       width: 100%;
       overflow: hidden;

@@ -38,10 +38,13 @@ export default function SuggestInput() {
     return data.order.map((item) => {
       return {
         titleName: item,
-        content: data[item].map(
-          (item) =>
-            item.name + ((item.artists && "-" + item.artists[0]?.name) || "")
-        ),
+        content: data[item].map((item) => {
+          return {
+            showText:
+              item.name + ((item.artists && "-" + item.artists[0]?.name) || ""),
+            ...item,
+          };
+        }),
       };
     });
   };
@@ -49,7 +52,7 @@ export default function SuggestInput() {
     <ContentStyles>
       <Input
         onFocus={() => searchValue && setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        onBlur={() => setTimeout(() => setIsFocus(false), 100)}
         value={searchValue}
         onChange={handleQuery}
         placeholder="音乐/视频/电台/用户"

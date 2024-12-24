@@ -1,6 +1,7 @@
 import { Child } from "./styles";
 import { mappingName } from "../SuggestInput/type";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ChildNode({ item }) {
   const [imageSrc, setImageSrc] = useState("");
@@ -18,7 +19,10 @@ export default function ChildNode({ item }) {
 
     loadImage();
   }, [item.titleName]);
-
+  const navigate = useNavigate();
+  const handleClick = (item) => {
+    navigate(`/song?id=${item.id}`);
+  };
   return (
     <Child>
       <div className="left">
@@ -27,7 +31,9 @@ export default function ChildNode({ item }) {
       </div>
       <div className="right">
         {item.content.map((contentItem, index) => (
-          <div key={index}>{contentItem}</div>
+          <div key={index} onClick={() => handleClick(contentItem)}>
+            {contentItem.showText}
+          </div>
         ))}
       </div>
     </Child>

@@ -9,5 +9,8 @@ export const getSuggest = async (params: {
   keywords: string;
 }): Promise<SuggestResult> => {
   const response = await request.get("/search/suggest", { params });
-  return response.result; // 如果返回的是 'result'，直接访问
+  return response.result;
+};
+export const getLyric = async (params: { id: string }) => {
+  return await request.get("/lyric", { params });
 };
